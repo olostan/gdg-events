@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body ng-app="YourApp" layout="horizontal">
+
+    <material-sidenav class="material-sidenav-left material-whiteframe-z3" component-id="left">
+
+      <material-toolbar class="material-theme-light">
+        <h1 class="material-toolbar-tools">GDG</h1>
+      </material-toolbar>
+      <material-content >
+        
+        <button class="menu-item"
+          ng-class="{active:true}"
+          ng-click="openPage(section, page)"
+          ink-ripple>
+          <span>Events</span>
+        </button>
+        <button class="menu-item"
+          ng-class="{active:false}"
+          ng-click="openPage(section, page)"
+          ink-ripple>
+          <span>People</span>
+        </button>
+      </material-content>
+
+    </material-sidenav>
+
+    <div layout="vertical" layout-fill>
+	<material-toolbar class="material-theme-dark">
+	     <h1 class="material-toolbar-tools light">
+	        <tf-float label="Search" value="search"></tf-float>
+	     </h1>
+	</material-toolbar>
+	 <material-content scroll-y flex class="material-content-padding center">
+	      <div class="material-whiteframe-z1 item" ng-repeat="x in [1,2,3,5]">
+	         <material-toolbar>
+    		    <h3 class="material-toolbar-tools">
+    			<span>Dart Flight School</span>
+    		    </h3>
+		</material-toolbar>
+		 <material-divider ng-if="!$last"></material-divider>
+	         sadad
+	      </div>
+	 </material-content>
+    </div>
+
+  </section>
+
+</div>
+
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/hammerjs/hammer.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script>
+
+        // Include app dependencies on ngAnimate and ngMaterial
+
+        angular.module( 'YourApp', [ 'ngAnimate', 'ngMaterial' ] )
+            .controller("YourController", function() {} )
+
+.directive('tfFloat', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      scope : {
+        fid : '@?',
+        value : '='
+      },
+      compile : function() {
+        return {
+          pre : function(scope, element, attrs) {
+            // transpose `disabled` flag
+            if ( angular.isDefined(attrs.disabled) ) {
+              element.attr('disabled', true);
+              scope.isDisabled = true;
+            }
+
+            // transpose the `label` value
+            scope.label = attrs.label || "";
+            scope.fid = scope.fid || scope.label;
+
+            // transpose optional `type` and `class` settings
+            element.attr('type', attrs.type || "text");
+            element.attr('class', attrs.class );
+          }
+        }
+      },
+      template:
+        '<material-input-group ng-disabled="isDisabled">' +
+          '<label for="{{fid}}">{{label}}</label>' +
+          '<material-input id="{{fid}}" ng-model="value">' +
+        '</material-input-group>'
+    };
+  });
+    </script>
+
+</body>
+</html>

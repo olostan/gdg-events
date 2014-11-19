@@ -1,0 +1,23 @@
+{
+  "name": "gdgreg",
+  "version": "0.0.0",
+  "authors": [
+    "Valentyn Shybanov <olostan@gmail.com>"
+  ],
+  "description": "GDG Registration form system",
+  "main": "index.html",
+  "keywords": [
+    "gdg"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "~0.4.0"
+  }
+}

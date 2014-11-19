@@ -1,0 +1,36 @@
+.menu-item {
+  background: none;
+  border-width: 0;
+  cursor: pointer;
+  display: block;
+  color: #333;
+  font-size: inherit;
+  line-height: 40px;
+  max-height: 40px;
+  margin: 0;
+  outline: none;
+  padding: 0px 28px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+  z-index: 1;
+  -webkit-transition: 0.2s linear;
+  -webkit-transition-property: max-height, background-color;
+  -moz-transition: 0.2s linear;
+  -moz-transition-property: max-height, background-color;
+  transition: 0.2s linear;
+  transition-property: max-height, background-color;
+}
+.menu-item:hover, .menu-item:focus {
+  color: #999;
+}
+.menu-item.active {
+  background-color: #eeeeee;
+  font-weight: bold;
+  color: #4285f4;
+}
+
+.item { margin: 20px;background-color: white;}
+
+.center { background-color: #F5F5F5;}
